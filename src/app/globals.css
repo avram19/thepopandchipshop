@@ -1,26 +1,123 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-pink-light: #FDF2F4;
+  --color-pink-soft: #FBBAC8;
+  --color-pink-main: #E8A0B0;
+  --color-pink-dark: #C87F94;
+  --color-teal-light: #B8E8E0;
+  --color-teal-main: #7DD3C0;
+  --color-teal-dark: #5BBFAA;
+  --color-purple-main: #9B6B9E;
+  --color-cream: #FFF9F5;
+  --color-brown-cookie: #C4956A;
+  --font-sans: var(--font-nunito);
+  --font-display: var(--font-bubblegum);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: #4A4A4A;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-pink-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-pink-main);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-pink-dark);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0); opacity: 0; }
+  80% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-bounce-soft {
+  animation: bounce-soft 2s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 1s ease-in-out infinite;
+}
+
+.animate-pop-in {
+  animation: pop-in 0.5s ease-out forwards;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 5s ease infinite;
+}
+
+/* Decorative patterns */
+.pattern-dots {
+  background-image: radial-gradient(var(--color-pink-soft) 2px, transparent 2px);
+  background-size: 20px 20px;
+}
+
+.pattern-sprinkles {
+  background-image:
+    linear-gradient(45deg, var(--color-teal-light) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--color-pink-soft) 25%, transparent 25%);
+  background-size: 30px 30px;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) rotate(1deg);
+  box-shadow: 0 20px 40px rgba(200, 127, 148, 0.3);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-pink-dark), var(--color-purple-main), var(--color-teal-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
