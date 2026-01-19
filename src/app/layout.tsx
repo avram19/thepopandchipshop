@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Nunito, Bubblegum_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const nunito = Nunito({
@@ -46,6 +48,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${nunito.variable} ${bubblegum.variable} antialiased`}>
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
